@@ -6,7 +6,7 @@
 /*   By: vess <vess@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:09:37 by jcampagn          #+#    #+#             */
-/*   Updated: 2021/12/10 11:44:11 by vess             ###   ########.fr       */
+/*   Updated: 2021/12/10 11:56:47 by vess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,4 @@ int	ft_printnumber(int nb)
 	ft_putstr(str);
 	free(str);
 	return (ft_nbrlen(nb));
-}
-
-int	ft_printchar(int c)
-{
-	write(1, &c, 1);
-	return (1);
 }

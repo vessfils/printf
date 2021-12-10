@@ -6,7 +6,7 @@
 /*   By: vess <vess@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:09:37 by jcampagn          #+#    #+#             */
-/*   Updated: 2021/12/10 11:30:22 by vess             ###   ########.fr       */
+/*   Updated: 2021/12/10 14:53:32 by vess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,14 @@ char	*ft_uitoa(unsigned int nb)
 int	ft_printunsigned(unsigned int nb)
 {
 	char	*str;
-
-	str = ft_uitoa(nb);
-	ft_putstr(str);
-	free(str);
+	
+	if (nb == 0)
+		write(1, "0", 1);
+	else
+	{
+		str = ft_uitoa(nb);
+		ft_putstr(str);
+		free(str);
+	}
 	return (ft_unbrlen (nb));
 }

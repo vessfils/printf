@@ -6,11 +6,17 @@
 /*   By: vess <vess@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:42:05 by jcampagn          #+#    #+#             */
-/*   Updated: 2021/12/10 11:45:26 by vess             ###   ########.fr       */
+/*   Updated: 2021/12/10 16:46:34 by vess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_printchar(int c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
 void	ft_putstr(char *str)
 {
@@ -60,19 +66,19 @@ int	ft_format(va_list args, const char flag)
 	else if (flag == '%')
 		size += ft_printpercentage();
 	else if (flag == 'x')
-		size += ft_printhexa(va_arg (args, int), flag);
+		size += ft_printhexa(va_arg (args, unsigned int), flag);
 	else if (flag == 'X')
-		size += ft_printhexa(va_arg (args, int), flag);
+		size += ft_printhexa(va_arg (args, unsigned int), flag);
 	else if (flag == 'i' || flag == 'd')
 		size += ft_printnumber(va_arg (args, int));
 	else if (flag == 'u')
-		size += ft_printnumber(va_arg (args, unsigned int));
+		size += ft_printunsigned(va_arg (args, unsigned int));
 	else if (flag == 'p')
 		size += ft_printptr(va_arg (args, unsigned long long));
 	return (size);
 }
 
-int	ft_printf(const char*str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
@@ -91,44 +97,49 @@ int	ft_printf(const char*str, ...)
 			i++;
 		}
 		else
-		{
 			size = size + ft_printchar(str[i]);
-			i++;
-		}
+		i++;
 	}
 	va_end(args);
 	return (size);
 }
+
 /*
 int main ()
 {
 	char a = 'c';
 	char *b = "Hello World";
-  char *ptr = &a;
-  int nb = 42;
+	char *ptr = NULL;
+	int nb = 42;
 
-  printf("%c\n", a);
+	printf("%p\n", ptr);
+	ft_printf("%p", ptr);
+	printf("%x\n", 16);
+	ft_printf("%x", 16);
+	ft_printf("%p", );
 	ft_printf("%c", a);
 	printf("\n");
-  printf("%s\n", b);
+	printf("%s\n", b);
 	ft_printf("%s", b);
 	printf("\n");
-  printf("%%");
+	printf("%%");
 	ft_printf("%%\n");
 	printf("\n");
-  printf("%p\n", &a);
-  ft_printf("%p", ptr);
-  printf("\n");
-  
-  printf("%x\n", nb);
-  ft_printf("%x\n", nb);
-  printf("%s\n", "0");
-  ft_printf("%s\n", "0");
- 
-  printf("%X\n", nb);
-  ft_printf("%X\n", nb);
-  printf("%p\n", ptr);
-  ft_printf("%p\n", ptr);
+	printf("%p\n", &a);
+	ft_printf("%p", ptr);
+	printf("\n");
+	printf("%x\n", nb);
+	ft_printf("%x\n", nb);
+	printf("%s\n", "0");
+	ft_printf("%s\n", "0"); 
+	printf("%X\n", nb);
+	ft_printf("%X\n", nb);
+	printf("%p\n", ptr);
+	ft_printf("%p\n", ptr);
+
+	printf("%u\n", -1);
+
+	ft_printf("%u", -1);
 
 	return(0);
 }
