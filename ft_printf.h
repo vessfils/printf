@@ -6,17 +6,17 @@
 /*   By: vess <vess@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:09:37 by jcampagn          #+#    #+#             */
-/*   Updated: 2021/12/10 16:45:38 by vess             ###   ########.fr       */
+/*   Updated: 2021/12/11 12:34:51 by jcampagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-#ifdef __APPLE__
-#define RETURN_NULL "0x0"
-#else
-#define RETURN_NULL "(nil)"
-#endif
+# ifdef __APPLE__
+#  define RETURN_NULL "0x0"
+# else
+#  define RETURN_NULL "(nil)"
+# endif
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -42,5 +42,6 @@ char	*ft_itoa(int nb);
 int		ft_unbrlen(unsigned int nbr);
 char	*ft_uitoa(unsigned int nb);
 int		ft_printunsigned(unsigned int nb);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

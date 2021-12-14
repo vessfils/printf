@@ -6,17 +6,11 @@
 /*   By: vess <vess@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:42:05 by jcampagn          #+#    #+#             */
-/*   Updated: 2021/12/10 16:46:34 by vess             ###   ########.fr       */
+/*   Updated: 2021/12/10 19:21:16 by jcampagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_printchar(int c)
-{
-	write(1, &c, 1);
-	return (1);
-}
 
 void	ft_putstr(char *str)
 {
@@ -114,6 +108,7 @@ int main ()
 
 	printf("%p\n", ptr);
 	ft_printf("%p", ptr);
+	
 	printf("%x\n", 16);
 	ft_printf("%x", 16);
 	ft_printf("%p", );
